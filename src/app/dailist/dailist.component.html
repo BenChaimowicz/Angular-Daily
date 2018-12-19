@@ -1,0 +1,4 @@
+<dailycreator
+    (newName)="onSave($event)"
+></dailycreator>
+<daily *ngFor="let daily of getList()" [currentDaily]="daily"></daily>
