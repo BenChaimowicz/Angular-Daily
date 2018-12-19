@@ -2,6 +2,8 @@ export class Daily {
     private _id: number;
     private _name: string;
     private _dateCreated: Date;
+    private _timeSpentDoing: number;
+    private _timeLimit: number;
 
     constructor(id: number, name: string) {
         this._dateCreated = new Date();
@@ -12,6 +14,10 @@ export class Daily {
     get id() { return this._id; }
     get name() { return this._name; }
     get date() { return this._dateCreated; }
+    get timespentdoing() { return this._timeSpentDoing; }
+    get timelimit() { return this._timeLimit; }
     set id(id: number) { this._id = id; }
     set name(name: string) { this._name = name; }
+    set timespentdoing(time: number) { this._timeSpentDoing = time; }
+    set timelimit(time: number) { this._timeLimit = time; }
 }

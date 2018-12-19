@@ -13,6 +13,10 @@ export class DailyComponent implements OnInit {
   constructor() {
   }
 
+  timePercentage(): number {
+    const percentDone: number = (this.currentDaily.timespentdoing / this.currentDaily.timelimit) * 100;
+    return percentDone;
+  }
   ngOnInit() {
   }
 
