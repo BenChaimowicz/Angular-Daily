@@ -7,8 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class DailycreatorComponent implements OnInit {
 
-  @Output() newName = new EventEmitter();
+  @Output() newName = new EventEmitter<string>();
+  @Output() newLimit = new EventEmitter<number>();
   nameInput: string;
+  timeLimitInput = 60;
 
 
   constructor() { }
@@ -16,8 +18,9 @@ export class DailycreatorComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSave() { 
+  onSave() {
     this.newName.emit(this.nameInput);
+    this.newLimit.emit(this.timeLimitInput);
   }
 
 }

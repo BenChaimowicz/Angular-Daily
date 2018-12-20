@@ -1,4 +1,5 @@
 <dailycreator
     (newName)="onSave($event)"
 ></dailycreator>
+<h2 *ngIf="getList().length == 0">No Dailies yet :(</h2>
 <daily *ngFor="let daily of getList()" [currentDaily]="daily"></daily>

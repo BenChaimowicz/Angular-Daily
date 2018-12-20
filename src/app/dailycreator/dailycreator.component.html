@@ -1,13 +1,13 @@
-<div class="container-fluid" style="margin-top:8px">
+<div class="container-fluid" style="margin-top:8px; margin-bottom: 8px">
     <button class="btn btn-dark" data-toggle="collapse" data-target="#panel">New...</button>
     <div id="panel" class="collapse col-4" style="margin:8px">
         <div class="card card-body">
             <h4>New Daily</h4>
             <label for="nameInput">Name of daily:</label>
             <input id="nameInput" type="text" [(ngModel)]="nameInput" />
-            <label for="timeLimitInput">Time Limit:</label>
+            <label for="timeLimitInput">Time Limit: (minutes)</label>
             <input id="timeLimitInput" type="number" [(ngModel)]="timeLimitInput" />
-            <button class="btn btn-secondary" (click)="onSave()">Save</button>
+            <button style="margin-top:8px" class="btn btn-secondary" (click)="onSave()">Save</button>
         </div>
     </div>
 </div>
