@@ -15,11 +15,22 @@ export class DailistComponent implements OnInit {
 
   getList() { return this._dailyList; }
   addToList(daily: Daily) { this._dailyList.push(daily); }
-  onSave(name: string) {
-    const newDaily = new Daily(this._idCounter, name);
+  onSave(data: any) {
+    console.log(data);
+    const newDaily = new Daily(this._idCounter, data.newName, data.newTimeLimit);
     this.addToList(newDaily);
     console.log(this.getList());
     this._idCounter++;
+  }
+  onDelete(dailyID: number) {
+    this._dailyList.splice(this.getIndexOfId(dailyID), 1);
+  }
+  getIndexOfId(id: number): number {
+    for (let i = 0; i < this._dailyList.length; i++) {
+      const currDaily: Daily = this._dailyList[i];
+      if (currDaily.id === id) { return i; }
+    }
+    throw new Error('ID was not found.');
   }
   
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Daily } from '../daily';
 
 @Component({
@@ -9,15 +9,34 @@ import { Daily } from '../daily';
 export class DailyComponent implements OnInit {
 
   @Input() currentDaily: Daily;
+  @Output() destroyDaily: EventEmitter<number> = new EventEmitter<number>();
+  
+  destroyThis = false;
+  currentProgress: any;
 
   constructor() {
   }
 
-  timePercentage(): number {
-    const percentDone: number = (this.currentDaily.timespentdoing / this.currentDaily.timelimit) * 100;
-    return percentDone;
-  }
   ngOnInit() {
+  }
+
+  timePercentage(): number {
+    const percentDone: number = (this.currentDaily.timespentdoing / this.currentDaily.timeLimit) * 100;
+
+    if (isNaN(percentDone)) { 
+      return 0;
+    } else {return percentDone; }
+  }
+
+  onDelete() {
+    this.destroyThis = confirm('Delete this Daily?') ? true : false;
+    if (this.destroyThis = true) {
+      this.destroyDaily.emit(this.currentDaily.id);
+    }
+  }
+
+  activateDaily() {
+    this.currentProgress = setInterval(() => { this.timePercentage(); }, 1000);
   }
 
 }

@@ -1,5 +1,7 @@
 <dailycreator
-    (newName)="onSave($event)"
+    (newDailyData)="onSave($event)"
 ></dailycreator>
-<h2 *ngIf="getList().length == 0">No Dailies yet :(</h2>
-<daily *ngFor="let daily of getList()" [currentDaily]="daily"></daily>
+<div class="container-fluid">
+<h2 *ngIf="getList().length == 0" style="margin-left:16px; margin-top:8px">No Dailies yet :(</h2>
+<daily *ngFor="let daily of getList()" [currentDaily]="daily" (destroyDaily)="onDelete($event)"></daily>
+</div>
