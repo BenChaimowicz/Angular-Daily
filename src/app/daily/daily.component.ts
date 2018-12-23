@@ -24,6 +24,7 @@ export class DailyComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentProgress = this.currentDaily.timespentdoing;
   }
 
   timePercentage(): number {
@@ -58,6 +59,7 @@ export class DailyComponent implements OnInit {
       this.currentProgress++;
       this.currentDaily.timespentdoing = this.currentProgress;
       console.log(this.timePercentage());
+      console.log(this.currentProgress);
     }, 1000);
   }
 

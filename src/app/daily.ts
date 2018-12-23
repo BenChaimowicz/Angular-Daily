@@ -10,6 +10,7 @@ export class Daily {
         this.id = id;
         this.name = name;
         this.timeLimit = timeLimit;
+        this.timespentdoing = 0;
     }
 
     get id() { return this._id; }
