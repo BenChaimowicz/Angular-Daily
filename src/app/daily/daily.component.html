@@ -1,13 +1,17 @@
-<div class="card card-body col-6 flex-row" style="margin:4px; margin-left:15px">
-    <div class="col-11">
+<div class="card card-body col-6 flex-row bg-dark" style="margin:4px; margin-left:15px">
+    <div class="col-11 text-light">
         <h3>{{currentDaily.name}}</h3>
         <span>{{currentDaily.date | date: 'medium' }}</span>
         <hr>
         <h6>Progress:</h6>
         <div class="progress">
-            <div class="progress-bar-striped" role="progressbar" [style.width]="timePercentage()"></div>
+            <div class="progress-bar-striped text-dark" role="progressbar" [style.width]="timePercentage()"></div>
             {{timePercentage().toFixed(0)}}%
         </div>
     </div>
-    <div class="col-1"><a class="close pull-right" style="float:right" (click)="onDelete()">x</a></div>
+    <div class="col-1 flex-column">
+        <a class="close pull-right text-light" (click)="onDelete()">x</a>
+        <div style="height:100px;"></div>
+        <a (click)="toggleActive()" class="pull-right"><img [src]="imgURL" style="width:45px; height:45px;"></a>
+    </div>
 </div>
