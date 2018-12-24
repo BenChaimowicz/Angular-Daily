@@ -4,9 +4,10 @@
         <span style="font-size: 12px">{{currentDaily.date | date: 'medium' }}</span>
         <hr>
         <h6>Progress:</h6>
-        <div class="progress bg-dark" style="border:1px solid white">
+        <div class="progress bg-dark" style="border:1px solid gray">
             <div 
-            class="progress-bar-striped bg-info" 
+            [ngClass]="{'progress-bar-animated': isActive}"
+            class="progress-bar-striped bg-info"
             role="progressbar" 
             [ngStyle]="{'width': timePercentage()+'%', 'text-align': 'center'}">
             {{timePercentage().toFixed(0)}}%        
