@@ -1,12 +1,16 @@
 <div class="card card-body col-6 flex-row bg-dark" style="margin:4px; margin-left:15px">
     <div class="col-11 text-light">
         <h3>{{currentDaily.name}}</h3>
-        <span>{{currentDaily.date | date: 'medium' }}</span>
+        <span style="font-size: 12px">{{currentDaily.date | date: 'medium' }}</span>
         <hr>
         <h6>Progress:</h6>
-        <div class="progress">
-            <div class="progress-bar-striped text-dark" role="progressbar" [style.width]="timePercentage()"></div>
-            {{timePercentage().toFixed(0)}}%
+        <div class="progress bg-dark" style="border:1px solid white">
+            <div 
+            class="progress-bar-striped bg-info" 
+            role="progressbar" 
+            [ngStyle]="{'width': timePercentage()+'%', 'text-align': 'center'}">
+            {{timePercentage().toFixed(0)}}%        
+        </div>
         </div>
     </div>
     <div class="col-1 flex-column">
