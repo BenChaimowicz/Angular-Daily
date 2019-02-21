@@ -10,7 +10,7 @@ export class DailyComponent implements OnInit {
 
   @Input() currentDaily: Daily;
   @Output() destroyDaily: EventEmitter<number> = new EventEmitter<number>();
-  
+
   destroyThis = false;
   currentProgress: number;
   activeTimer: any;
@@ -30,9 +30,23 @@ export class DailyComponent implements OnInit {
   timePercentage(): number {
     const percentDone: number = (this.currentDaily.timespentdoing / this.currentDaily.timeLimit) * 100;
 
-    if (isNaN(percentDone)) { 
+    if (isNaN(percentDone)) {
       return 0;
-    } else {return percentDone; }
+    } else {
+      if (!this.currentDaily.isReached) { this.checkIfGoalReached(percentDone); }
+      return percentDone;
+    }
+
+  }
+
+  checkIfGoalReached(percentage: number) {
+    let reachedGoal: boolean;
+    reachedGoal = percentage >= 100 ? true : false;
+    if (reachedGoal) { this.onGoalReached(); }
+  }
+  onGoalReached() {
+    this.currentDaily.isReached = true;
+
   }
 
   onDelete() {
