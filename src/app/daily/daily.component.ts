@@ -46,7 +46,6 @@ export class DailyComponent implements OnInit {
   }
   onGoalReached() {
     this.currentDaily.isReached = true;
-
   }
 
   onDelete() {
