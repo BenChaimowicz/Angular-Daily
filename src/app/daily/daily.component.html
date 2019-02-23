@@ -5,17 +5,17 @@
         <hr>
         <h6>Progress:</h6>
         <div class="progress bg-dark" style="border:1px solid gray">
-            <div 
+            <div
             [ngClass]="{'progress-bar-animated': isActive}"
             class="progress-bar-striped bg-info"
-            role="progressbar" 
+            role="progressbar"
             [ngStyle]="{'width': timePercentage()+'%', 'text-align': 'center'}">
-            {{timePercentage().toFixed(0)}}%        
+            {{timePercentage().toFixed(0)}}%
         </div>
         </div>
     </div>
     <div class="col-1 flex-column">
-        <a class="close pull-right text-light" (click)="onDelete()">x</a>
+        <a class="close pull-right text-light" (click)="onDelete()"><img src="../../assets/delete_icon.png" style="width:35px;height:35px;"></a>
         <div style="height:100px;"></div>
         <a (click)="toggleActive()" class="pull-right"><img [src]="imgURL" style="width:45px; height:45px;"></a>
     </div>

@@ -20,7 +20,7 @@ export class DailycreatorComponent implements OnInit {
   onSave() {
     this.newDailyData.emit({
       newName : this.nameInput,
-      newTimeLimit: this.timeLimitInput,
+      newTimeLimit: this.timeLimitInput * 60,
     });
   }
 }

@@ -32,7 +32,7 @@ export class DailistComponent implements OnInit {
     }
     throw new Error('ID was not found.');
   }
-  
+
   ngOnInit() {
   }
 
