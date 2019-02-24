@@ -1,3 +1,4 @@
+import { CustomTimeRangeDirective } from './timerange.validators';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,6 +20,7 @@ import { WeeklystatsComponent } from './weeklystats/weeklystats.component';
     DailistComponent,
     DailycreatorComponent,
     WeeklystatsComponent,
+    CustomTimeRangeDirective,
   ],
   imports: [
     BrowserModule,
