@@ -8,7 +8,7 @@ import { DailyComponent } from './daily/daily.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { DailistComponent } from './dailist/dailist.component';
 import { DailycreatorComponent } from './dailycreator/dailycreator.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { WeeklystatsComponent } from './weeklystats/weeklystats.component';
 
 @NgModule({

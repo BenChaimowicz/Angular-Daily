@@ -1,13 +1,38 @@
 <div class="container-fluid" style="margin-top:8px; margin-bottom: 8px">
     <button style="margin-left:16px" class="btn btn-dark" data-toggle="collapse" data-target="#panel">New...</button>
     <div id="panel" class="collapse col-4" style="margin-top:8px;margin-bottom: 8px">
-        <div class="card card-body">
+        <div class="card card-body form-group">
             <h4>New Daily</h4>
             <label for="nameInput">Name of daily:</label>
-            <input id="nameInput" type="text" [(ngModel)]="nameInput" />
+            <input
+              class="form-control"
+              ngModel
+              required
+              minlength="3"
+              #nameInput="ngModel"
+              id="nameInput"
+              name="nameInput"
+              type="text"
+              />
+            <div class="alert alert-danger" *ngIf="nameInput.touched && !nameInput.valid" >This field is required.</div>
+            <div class="alert alert-danger" *ngIf="nameInput.dirty && nameInput.errors?.minlength" >Must be at least 3 characters.</div>
+
             <label for="timeLimitInput">Time Limit: (minutes)</label>
-            <input id="timeLimitInput" type="number" [(ngModel)]="timeLimitInput" />
+            <input
+              class="form-control"
+              ngModel
+              required
+              max="720"
+              #timeLimitInput="ngModel"
+              (change)="log(timeLimitInput)"
+              id="timeLimitInput"
+              name="timeLimitInput"
+              type="number"
+              />
+              <div class="alert alert-danger" *ngIf="timeLimitInput.touched && !timeLimitInput.valid" >This field is required.</div>
+              <div class="alert alert-danger" *ngIf="timeLimitInput.dirty && timeLimitInput.errors?.max" >Must be less than 3 digits.</div>
+
             <button style="margin-top:8px" class="btn btn-secondary" (click)="onSave()" data-toggle="collapse" data-target="#panel">Save</button>
-        </div>
+          </div>
     </div>
 </div>

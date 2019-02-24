@@ -9,14 +9,15 @@ export class DailycreatorComponent implements OnInit {
 
   @Output() newDailyData = new EventEmitter<any>();
   nameInput: string;
-  timeLimitInput = 60;
-
-
+  timeLimitInput: number;
+  x;
   constructor() { }
 
   ngOnInit() {
   }
-
+  log(x) {
+    console.log(x);
+  }
   onSave() {
     this.newDailyData.emit({
       newName : this.nameInput,
