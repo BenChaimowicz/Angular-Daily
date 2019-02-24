@@ -18,10 +18,11 @@ export class DailycreatorComponent implements OnInit {
   log(x) {
     console.log(x);
   }
-  onSave() {
+  onSave(data: any) {
+    console.log(data);
     this.newDailyData.emit({
-      newName : this.nameInput,
-      newTimeLimit: this.timeLimitInput * 60,
+      newName : data.value.nameInput,
+      newTimeLimit: data.value.timeLimitInput * 60,
     });
   }
 }

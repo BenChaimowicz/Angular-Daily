@@ -9,7 +9,7 @@ import { DailyComponent } from './daily/daily.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { DailistComponent } from './dailist/dailist.component';
 import { DailycreatorComponent } from './dailycreator/dailycreator.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WeeklystatsComponent } from './weeklystats/weeklystats.component';
 
 @NgModule({
@@ -27,6 +27,7 @@ import { WeeklystatsComponent } from './weeklystats/weeklystats.component';
     AppRoutingModule,
     AlertModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

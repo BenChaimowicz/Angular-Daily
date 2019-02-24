@@ -1,6 +1,7 @@
 <div class="container-fluid" style="margin-top:8px; margin-bottom: 8px">
     <button style="margin-left:16px" class="btn btn-dark" data-toggle="collapse" data-target="#panel">New...</button>
     <div id="panel" class="collapse col-4" style="margin-top:8px;margin-bottom: 8px">
+      <form #form="ngForm" (ngSubmit)="onSave(form)">
         <div class="card card-body form-group">
             <h4>New Daily</h4>
             <label for="nameInput">Name of daily:</label>
@@ -34,7 +35,8 @@
               <div class="alert alert-danger" *ngIf="timeLimitInput.touched && !timeLimitInput.valid" >This field is required.</div>
               <div class="alert alert-danger" *ngIf="timeLimitInput.dirty && timeLimitInput?.errors?.OutOfRange" >Must be between 1 and 720.</div>
 
-            <button style="margin-top:8px" class="btn btn-secondary" (click)="onSave()" data-toggle="collapse" data-target="#panel">Save</button>
+            <button ngSubmit style="margin-top:8px" class="btn btn-secondary" data-toggle="collapse" data-target="#panel">Save</button>
           </div>
+        </form>
     </div>
 </div>
